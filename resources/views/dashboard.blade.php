@@ -12,5 +12,5 @@
             </div>
         </div>
     </div>
-    <div> Agregando un div en el dashboard ***</div>
+    <div> Agregando un div  ***</div>
 </x-app-layout>
