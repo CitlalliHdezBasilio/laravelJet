@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+/* Route::get('/nuevo', function(){
+    return view('candidatos/nuevo');
+})->name('nuevo'); */
+
+Route::get('/nuevo', function () {
+    return view('candidatos/nuevo');
+})->name('nuevo');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
