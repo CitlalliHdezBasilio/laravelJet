@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return view('auth.login');
 });
 
 /* Route::get('/nuevo', function(){
@@ -25,6 +26,11 @@ Route::get('/nuevo', function () {
     return view('candidatos/nuevo');
 })->name('nuevo');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+/* Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
+})->name('dashboard'); */
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dash.index');
 })->name('dashboard');
+
+Route::resource('candidatos/nuevo', 'App\Http\Controllers\CandidatoController');
