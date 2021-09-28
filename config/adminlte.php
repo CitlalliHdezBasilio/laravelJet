@@ -230,7 +230,7 @@ return [
         [
             'type'         => 'navbar-search',
             'text'         => 'search',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type'         => 'fullscreen-widget',
@@ -238,34 +238,37 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
+
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text'    => 'Planillas',
+            'icon'    => 'fas fa-fw fa-users',
+            'submenu' => [
+                [
+                    'text' => 'Nueva',
+                    'url'  => 'planillas/create',
+                    'icon'    => 'fas fa-fw fa-folder-plus',
+                    'icon_color' => 'purple',
+                ],
+                [
+                    'text' => 'Buscar',
+                    'url'  => '#',
+                    'icon'    => 'fas fa-fw fa-search',
+                    'icon_color' => 'purple',
+                ],
+                [
+                    'text' => 'Ver todas las planillas',
+                    'url'  => 'planillas',
+                    'icon'    => 'fas fa-fw fa-folder-open',
+                    'icon_color' => 'purple',
+                ],
+            ],
         ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-
         [
             'text'    => 'Candidatos',
             'icon'    => 'fas fa-fw fa-users',
@@ -282,14 +285,8 @@ return [
                     'icon'    => 'fas fa-fw fa-search',
                     'icon_color' => 'purple',
                 ],
-                [
-                    'text' => 'Ver todos',
-                    'url'  => '#',
-                    'icon'    => 'fas fa-fw fa-eye',
-                    'icon_color' => 'purple',
-                ],
             ],
-        ]
+        ],
     ],
 
     /*

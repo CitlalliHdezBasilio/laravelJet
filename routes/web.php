@@ -18,10 +18,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-/* Route::get('/nuevo', function(){
-    return view('candidatos/nuevo');
-})->name('nuevo'); */
-
 Route::get('/nuevo', function () {
     return view('candidatos/nuevo');
 })->name('nuevo');
@@ -34,3 +30,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('candidatos/nuevo', 'App\Http\Controllers\CandidatoController');
+
+//Route::resource('planillas/nueva', 'App\Http\Controllers\PlanillaController');
+
+Route::resource('planillas', 'App\Http\Controllers\PlanillaController');

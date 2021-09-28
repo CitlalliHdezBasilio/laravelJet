@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Candidato;
+use App\Models\Planilla;
 
-class CandidatoController extends Controller
+class PlanillaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class CandidatoController extends Controller
      */
     public function index()
     {
-        return view('candidatos\nuevo');
+        $planillas = Planilla::all();
+        return view('planillas.index')->with('planillas', $planillas);
     }
 
     /**
@@ -24,9 +25,14 @@ class CandidatoController extends Controller
      */
     public function create()
     {
-        //
+        return view('planillas.create');
     }
 
+    public function nueva()
+    {
+        
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +41,13 @@ class CandidatoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $planillas = new Planilla();
+
+        $planillas->id_demarcacion = $request->get('id_demarcacion');
+        $planillas->nombre_planilla = $request->get('nombre_planilla');
+
+        $planillas->save();
+        return redirect('planillas');
     }
 
     /**
@@ -46,7 +58,6 @@ class CandidatoController extends Controller
      */
     public function show($id)
     {
-        //
     }
 
     /**
@@ -57,7 +68,6 @@ class CandidatoController extends Controller
      */
     public function edit($id)
     {
-        //
     }
 
     /**
@@ -69,7 +79,6 @@ class CandidatoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
@@ -80,11 +89,5 @@ class CandidatoController extends Controller
      */
     public function destroy($id)
     {
-        //
     }
-
-    public function nuevo(){
-    }
-
-
 }
